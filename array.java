@@ -25,6 +25,7 @@ public class array {
 
             }
             System.out.println("Tiki");
+            System.out.println("Tiki prueba");
 
         }
     }
