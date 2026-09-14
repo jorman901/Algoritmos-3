@@ -232,6 +232,7 @@ int main()
 {
     Termino *nodo = nullptr;
     Termino *nodo2 = nullptr;
+    Termino *suma = nullptr;
     float coeficiente = 0;
     int exponente = 0;
     /*
@@ -250,12 +251,32 @@ int main()
         cin >> coeficiente;
         cout << "Ingresa el exponente: ";
         cin >> exponente;
+        nodo = insertarTermino(nodo, coeficiente, exponente);
+    }
+
+    cout << "Polinomio 1: " << endl;
+    imprimirPolinomio(nodo);
+
+    for (int i = 0; i < 4; i++)
+    {
+        cout << "Ingresa el coeficiente: ";
+        cin >> coeficiente;
+        cout << "Ingresa el exponente: ";
+        cin >> exponente;
         nodo2 = insertarTermino(nodo2, coeficiente, exponente);
     }
+
+    cout << "Polinomio 2: " << endl;
     imprimirPolinomio(nodo2);
-    cout << "Liberar memoria"<<endl;
+
+    suma = sumarPolinomios(nodo, nodo2);
+    cout << "La suma de los polinomios es: " << endl;
+    imprimirPolinomio(suma);
+
+    cout << "Liberar memoria" << endl;
     int liberar = 0;
     liberar = destruirPolinomio(nodo);
     liberar = destruirPolinomio(nodo2);
-    cout << "Se libero el nodo 1 y nodo 2";
+    liberar = destruirPolinomio(suma);
+    cout << "Se libero el nodo 1 y nodo 2" << endl;
 }
